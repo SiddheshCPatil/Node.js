@@ -14,7 +14,7 @@ data=fs.readFileSync("index2.txt","utf8");
 console.log(data);
 
 // Delete File
-fs.unlinkSync("index2.txt");
+// fs.unlinkSync("index2.txt");
 
 // Delete Folder
-fs.rmdirSync("Index");
+// fs.rmdirSync("Index");
