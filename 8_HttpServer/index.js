@@ -1,4 +1,5 @@
 const http = require('http');
+const fs = require("fs");
 
 const server = http.createServer((req, res) => {
 
@@ -11,7 +12,16 @@ const server = http.createServer((req, res) => {
     else if (req.url === '/contact') {
         res.end("Contact Side");
     }
-    else{
+    else if (req.url === '/userapi') {
+        res.end("userapi Side");
+        fs.readFile(`${__dirname}/10_UserAPI/userapi.json`, "UTF-8", (err, data) => {
+            // console.log(data);
+            res.end(data);
+            const objData=JSON.parse(data);
+            console.log(objData[0].dates);
+        });
+    }
+    else {
         res.writeHead(404);
         res.end("404 error,Page doesn't Exists");
     }
